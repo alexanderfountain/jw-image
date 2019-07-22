@@ -42,11 +42,7 @@ const pageQuery = `{
       ...rest,
     }))
   const settings = { 
-      attributesToSnippet: [`excerpt:20`] ,
-      attributesForFaceting: [
-        'tags',
-        'category',
-      ]
+      attributesToSnippet: [`excerpt:20`]
     }
   
   

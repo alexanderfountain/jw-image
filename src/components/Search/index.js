@@ -3,10 +3,11 @@ import algoliasearch from "algoliasearch/lite"
 import {
   InstantSearch,
   Index,
+  SearchBox,
+  ClearRefinements,
+  RefinementList,
   Hits,
   connectStateResults,
-  RefinementList,
-  sdf,
   SortBy,
 } from "react-instantsearch-dom"
 import { Algolia } from "styled-icons/fa-brands/Algolia"
@@ -74,25 +75,16 @@ export default class Search extends Component {
         root={{ Root, props: { ref } }}
       >
       <div>
-        <SortBy
-        defaultRefinement="instant_search"
-        items={[
-          {value:"instant_search", label:"most relative"},
-          {value:"instant_search_category_asc", label:"cat asc"}
-        ]}
-        />
+      <ClearRefinements />
         <div id="refinement-list">
             <h3>Category</h3>
-            <RefinementList
-            attribute="category"
-            container='#refinement-list'>
-            
-            </RefinementList>
-            <h3>Tags</h3>
             <RefinementList 
-            attribute="tags"
-            container='#refinement-list'>
-            </RefinementList>
+            attribute={"category"}
+            limit={1}
+            searchable={true}
+            showMore
+             />
+             <SearchBox translations={{ placeholder: "Search" }} />
             </div>
       </div>
       
